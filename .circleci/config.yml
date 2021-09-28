@@ -13,4 +13,3 @@ workflows:
   example-workflow:
     jobs:
       - build
-      
