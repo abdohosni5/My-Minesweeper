@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - newman/newman-run:
-          collection: https://github.com/abdohosni5/My-Minesweeper/blob/master/postman-api-testing/Users.postman_collection.json
+          collection: ./Users.postman_collection.json
           
 workflows:
   example-workflow:
