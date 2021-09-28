@@ -16,10 +16,6 @@
 							"  pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Check that it returns an array\", function () {\r",
-							"  var jsonData = pm.response.json();\r",
-							"  pm.expect(jsonData).to.be.an(\"array\");\r",
-							"});\r",
 							"\r",
 							""
 						],
