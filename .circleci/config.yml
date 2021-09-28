@@ -10,14 +10,63 @@ jobs:
           collection: ./Users.postman_collection.json
 
   unitTests:
-    docker:
-      - image: cimg/openjdk:17.0.0
+    
+    version: 2.1
+orbs:
+  newman: postman/newman@0.0.2
+jobs:
+  build:
+    executor: newman/postman-newman-docker
     steps:
       - checkout
-      - run: ./src/mineSweeper/board/ResetTests.java
+      - newman/newman-run:
+          collection: ./Users.postman_collection.json
 
+  unitTests:
+    
+    executors:
+  default:
+    docker:
+      - image: circleci/ruby:2.5
+commands:
+  install_gems:
+    description: "install dependencies"
+    steps:
+      - run: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
+  rspec:
+    description: "Run RSpec"
+    steps:
+      - run:
+          command: bundle exec rspec --format progress --format RspecJunitFormatter -o ~/test-results/rspec/rspec.xml
+          when: always
+  cucumber:
+    description: "Run cucumber"
+    steps:
+      - run:
+          command: bundle exec cucumber -f pretty -f junit -o ~/test-results/cucumber/cucumber.xml
+          when: always
+jobs:
+  test:
+    executor: default
+    steps:
+      - checkout
+      - install_gems
+      - rspec
+      - cucumber
+workflows:
+  pr:
+    jobs:
+      - test
+      
+      
 workflows:
   example-workflow:
     jobs:
       - build
+      
+      - checkout
+      - install_gems
+      - rspec
+      - cucumber
+      
       - unitTests
