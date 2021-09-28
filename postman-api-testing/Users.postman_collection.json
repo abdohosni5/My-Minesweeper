@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "04173d11-af79-47ff-a56c-e76d688cc344",
 		"name": "Users",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -26,55 +26,19 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "https://reqres.in/api/users/2"
-			},
-			"response": []
-		},
-		{
-			"name": "POST User",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"let random = +new Date();\r",
-							"\r",
-							"pm.globals.set(\"username\", `${random}-user`);\r",
-							"pm.globals.set(\"email\", `${random}-user@test.com`);\r",
-							"\r",
-							"pm.test(\"User creation was successful\", function () {\r",
-							"  pm.expect(pm.response.code).to.be.oneOf([200, 201, 202]);\r",
-							"});\r",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "username",
-							"value": "test",
-							"type": "text"
-						},
-						{
-							"key": "email",
-							"value": "test@test.com",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "test123",
-							"type": "text"
-						}
+				"url": {
+					"raw": "https://reqres.in/api/users/2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
 					]
-				},
-				"url": "https://reqres.in/api/users"
+				}
 			},
 			"response": []
 		}
