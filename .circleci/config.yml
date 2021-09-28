@@ -2,15 +2,14 @@ version: 2.1
 orbs:
   newman: postman/newman@0.0.2
 jobs:
-  example-job:
-    docker:
-      # replace with your preferred image
-      - image: cimg/base:stable
+  build:
+    executor: newman/postman-newman-docker
     steps:
+      - checkout
       - newman/newman-run:
-          collection: https://github.com/abdohosni5/My-Minesweeper/blob/master/postman-api-testing/Users.postman_collection.json 
-
+          collection: https://github.com/abdohosni5/My-Minesweeper/blob/master/postman-api-testing/Users.postman_collection.json
+          
 workflows:
   example-workflow:
     jobs:
-      - example-job
+      - build
