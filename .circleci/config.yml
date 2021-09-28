@@ -5,7 +5,7 @@ jobs:
   build:
     executor: newman/postman-newman-docker
     steps:
-      -checkout
+      - checkout
       - newman/newman-run:
           collection: https://github.com/abdohosni5/My-Minesweeper/blob/master/postman-api-testing/Users.postman_collection.json
           
