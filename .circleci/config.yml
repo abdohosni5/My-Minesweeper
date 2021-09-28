@@ -8,8 +8,7 @@ jobs:
       - checkout
       - newman/newman-run:
           collection: ./Users.postman_collection.json
-
-jobs:       
+     
   unitTests:
     docker:
       - image: cimg/openjdk:17.0.0
