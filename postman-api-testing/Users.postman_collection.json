@@ -1,8 +1,8 @@
 {
 	"info": {
-		"_postman_id": "10b7e055-986f-495c-a304-2c4306d7269f",
+		"_postman_id": "04173d11-af79-47ff-a56c-e76d688cc344",
 		"name": "Users",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
@@ -26,19 +26,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "https://reqres.in/api/users/2",
-					"protocol": "https",
-					"host": [
-						"reqres",
-						"in"
-					],
-					"path": [
-						"api",
-						"users",
-						"2"
-					]
-				}
+				"url": "https://reqres.in/api/users/2"
 			},
 			"response": []
 		},
@@ -86,18 +74,7 @@
 						}
 					]
 				},
-				"url": {
-					"raw": "https://reqres.in/api/users",
-					"protocol": "https",
-					"host": [
-						"reqres",
-						"in"
-					],
-					"path": [
-						"api",
-						"users"
-					]
-				}
+				"url": "https://reqres.in/api/users"
 			},
 			"response": []
 		}
