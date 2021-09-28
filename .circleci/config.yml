@@ -8,13 +8,13 @@ jobs:
       - checkout
       - newman/newman-run:
           collection: ./Users.postman_collection.json
-     
+
   unitTests:
     docker:
       - image: cimg/openjdk:17.0.0
     steps:
       - checkout
-      - run: ./ResetTests.java
+      - run: ./src/mineSweeper/board/ResetTests.java
 
 workflows:
   example-workflow:
